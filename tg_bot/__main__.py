@@ -18,9 +18,9 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-hoi {}, my name is {}! if you have any questions about how to use me please give me /help... 
+hai {}, namaku adalah {}! jika kamu memiliki pertanyaan tentang bagaimana cara menggunakanku, ketik saja /help 
 
-im a group manager bot maintained by  [this person](tg://user?id={}).
+aku adalah group manager bot provided by  [this person](tg://user?id={}).
 
 My future updates will be put into This Channel - @MarieChechi & My Support Group @InFoTelGroup.
 
