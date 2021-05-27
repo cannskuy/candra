@@ -149,6 +149,7 @@ def start(bot: Bot, update: Update, args: List[str]):
             first_name = update.effective_user.first_name
             update.effective_message.reply_text(
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
+                reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN)
     else:
         update.effective_message.reply_text("**ONLINE** 🇲🇨")
@@ -392,7 +393,7 @@ def donate(bot: Bot, update: Update):
             update.effective_message.reply_text("Aku mengirimi anda pesan untuk melakukan donasi kepada creatorku!")
         except Unauthorized:
             update.effective_message.reply_text("Contact aku di PM terlebih dahulu untuk mengetahui info lengkap donasi.")
-
+            reply_markup=InlineKeyboardMarkup(buttons)
 
 def migrate_chats(bot: Bot, update: Update):
     msg = update.effective_message  # type: Optional[Message]
