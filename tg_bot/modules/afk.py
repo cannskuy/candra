@@ -83,7 +83,7 @@ def reply_afk(bot: Bot, update: Update):
                 user_id = ent.user.id
                 fst_name = ent.user.first_name
 
-            elif ent.type == MessageEntity.MENTION:
+            if ent.type == MessageEntity.MENTION:
                 user_id = get_user_id(message.text[ent.offset:ent.offset + ent.length])
                 if not user_id:
                     # Should never happen, since for a user to become AFK they must have spoken. Maybe changed username?
@@ -91,23 +91,26 @@ def reply_afk(bot: Bot, update: Update):
                 chat = bot.get_chat(user_id)
                 fst_name = chat.first_name
 
+            elif message.reply_to_message:
+                user_id = message.reply_to_message.from_user.id
+                fst_name = message.reply_to_message.from_user.first_name
             else:
                 return
 
             if sql.is_afk(user_id):
                 user = sql.check_afk_status(user_id)
                 if not user.reason:
-                    res = "{} is away from the keyboard ! reason :\n{} ".format(fst_name)
+                    res = "{} sedang offline! Alasan :\n{} ".format(fst_name)
                 else:
-                    res = "{} is away from the keyboard ! reason :\n{}. ".format(fst_name, user.reason)
+                    res = "{} sedang offline! Alasan :\n{}. ".format(fst_name, user.reason)
                 message.reply_text(res)
 
 
 __help__ = """
- - /afk <reason>: mark yourself as AFK.
- - brb <reason>: same as the afk command - but not a command.
+ - /afk <reason>: menandai jika kamu sedang offline.
+ - brb <reason>: sama seperti afk - tapi bukan command.
 
-When marked as AFK, any mentions will be replied to with a message to say you're not available!
+Jika ditandai saat AFK, semua mentions akan dijawab dengan alasan kamu AFK!
 """
 
 __mod_name__ = "AFK"
