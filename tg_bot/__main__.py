@@ -33,7 +33,7 @@ buttons = [
     [
         InlineKeyboardButton(text="🔔 Channel", url=f"https://t.me/TokaiProject"),
         InlineKeyboardButton(
-            text="Group 🛡", url=f"https://t.me/musikalitasID"
+            text="Group 🔊", url=f"https://t.me/musikalitasID"
         ),
     ],
     [
@@ -51,13 +51,13 @@ ini, untuk melihat command yang ada!
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nSemua command yang tersedia atau yang dapat digunakan.\n")
 
 DONATE_STRING = """Halo, senang jika anda melakukan donasi!
-Klik tombol dibawah ini jika anda ingin untuk berdonasi.
+Klik tombol dibawah ini jika anda ingin berdonasi.
 """
 
-buttons = [
+tombol = [
     [
         InlineKeyboardButton(
-            text="💵 Donasi", url="t.me/Insaynn"),
+            text="💵 Donasi 💵", url="t.me/Insaynn"),
     ],
 ]
 
@@ -379,12 +379,7 @@ def donate(bot: Bot, update: Update):
     chat = update.effective_chat  # type: Optional[Chat]
 
     if chat.type == "private":
-        update.effective_message.reply_text(DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
-
-        if OWNER_ID != 254318997 and DONATION_LINK:
-            update.effective_message.reply_text("Kamu dapat melakukan donasi kepada ownerku "
-                                                "[Disini]({})".format(DONATION_LINK),
-                                                parse_mode=ParseMode.MARKDOWN)
+        update.effective_message.reply_text(DONATE_STRING,reply_markup=InlineKeyboardMarkup(tombol), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
     else:
         try:
@@ -393,7 +388,7 @@ def donate(bot: Bot, update: Update):
             update.effective_message.reply_text("Aku mengirimi anda pesan untuk melakukan donasi kepada creatorku!")
         except Unauthorized:
             update.effective_message.reply_text("Contact aku di PM terlebih dahulu untuk mengetahui info lengkap donasi.")
-            reply_markup=InlineKeyboardMarkup(buttons)
+
 
 def migrate_chats(bot: Bot, update: Update):
     msg = update.effective_message  # type: Optional[Message]
