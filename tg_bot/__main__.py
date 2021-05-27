@@ -152,7 +152,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 reply_markup=InlineKeyboardMarkup(buttons),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("**ONLINE** 🇲🇨")
+        update.effective_message.reply_text("⚡ SIAP MELAYANI ANDA ⚡")
 
 
 # for test purposes
