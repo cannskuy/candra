@@ -1,4 +1,3 @@
-import HTML
 import random
 
 from typing import Optional
