@@ -18,39 +18,45 @@ from tg_bot.modules.helper_funcs.chat_status import is_user_admin
 from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
-hai {}, namaku adalah {}! jika kamu memiliki pertanyaan tentang bagaimana cara menggunakanku, ketik saja /help 
-
-aku adalah group manager bot provided by  [this person](tg://user?id={}).
-
-Jangan lupa buat join juga ke - @TokaiProject & @musikalitasID
-
-Ini adalah source codeku, klik [Deploy Code](https://heroku.com/deploy?template=https://github.com/TokaiRobo/Manager),
-dan kamu dapat melakukan clone padaku..
-
-Untuk melihat list command ketik /help
-
-**Harap diingat, semua perubahan source code yang kamu lakukan harus berada pada github, seperti yang tertera pada license.**
+Halo **{}**, saya **{}**!
+Dikelola oleh @Insaynn 🇲🇨
+┈──────────────────────┈
+➠ **Tambahkan saya ke group mu dan jadikan saya admin!!**
+➠ **Ketik /help untuk melihat fitur-fitur yang bisa digunakan untuk membantu memanagement grup kamu.**
 
 """
+reply_markup=InlineKeyboardMarkup(
+            [ 
+                [
+                    InlineKeyboardButton(
+                        "Channel", url="https://t.me/musikalitassID"
+                    ),
+                    InlineKeyboardButton(
+                        "Group", url="https://t.me/musikalitasID"
+                    )
+                ],[ 
+                    InlineKeyboardButton(
+                        "Instagram", url="https://instagram.com/sndykaa/"
+                    )]
+            ]
+        )
 
 HELP_STRINGS = """
 
-Hello! namaku *{}*.
+__**List command tersedia :**__
 
-*Main* command tersedia :
- - /start: Memulai bot
- - /help: Bantuan oleh bot
- - /donate: Untuk mengetahui lebih lanjut tentang donasi
- - /settings:
-   - in PM: Untuk mengetahui SETTINGS apa yang telah diatur
-   - in a group:
+➠ /start    : Memulai bot
+➠ /help     : Bantuan oleh bot
+➠ /donate   : Untuk mengetahui lebih lanjut tentang donasi
+➠ /settings :
+  • dalam PM : Untuk mengetahui SETTINGS apa yang telah diatur
+  • dalam grup: Untuk setting dari dalam grup
 
 {}
-And the following:
-""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nSemua command yang tersedia  / atau ! yang dapat digunakan.\n")
+""".format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nSemua command yang tersedia atau yang dapat digunakan.\n")
 
 DONATE_STRING = """Heya, senang jika anda melakukan donasi!
-[my creator](t.me/SonOfLars) memakan banyak waktu sehingga aku dapat digunakan, dan setiap donasi \
+[pembuatku](t.me/Insaynn) memakan banyak waktu sehingga aku dapat digunakan, dan setiap donasi \
 akan sangat membantu pembuatku untuk mengupdateku lagi. Semua uang donasi akan digunakan untuk VPS, jadi \
 setiap donasi kecil akan sangat membantu! Terima kasih!!
 Kontak untuk melakukan donasi ; [OWNER](t.me/Insaynn)"""
