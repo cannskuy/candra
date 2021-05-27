@@ -19,7 +19,7 @@ from tg_bot.modules.helper_funcs.misc import paginate_modules
 
 PM_START_TEXT = """
 Halo **{}**, saya **{}**!
-Dikelola oleh @Insaynn 🇲🇨
+Dikelola oleh @candrakurniawannn 🇲🇨
 ┈──────────────────────┈
 ➠ **Tambahkan saya ke group mu dan jadikan saya admin!!**
 ➠ **Ketik /help untuk melihat fitur-fitur yang bisa digunakan untuk membantu memanagement grup kamu.**
@@ -28,22 +28,22 @@ Dikelola oleh @Insaynn 🇲🇨
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ Tambah Aku Kedalam Group ➕️", url="t.me/MusikalitasBot?startgroup=true"),
+            text="➕️ Tambah Aku Kedalam Group ➕️", url="t.me/ultramann_bot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="🔔 Channel", url=f"https://t.me/TokaiProject"),
+        InlineKeyboardButton(text="🔔 Channel", url=f"https://t.me/dreamingmoon"),
         InlineKeyboardButton(
-            text="Group 🔊", url=f"https://t.me/musikalitasID"
+            text="Group 🔊", url=f"https://t.me/caritemangobrol"
         ),
     ],
     [
-        InlineKeyboardButton(text="📱 Instagram 📱", url="https://instagram.com/sndykaa/"),
+        InlineKeyboardButton(text="📱 Instagram 📱", url="https://instagram.com/candrakurniawannn/"),
     ],
 ]
 
 HELP_STRINGS = """
 Selamat datang di help menu dari {}!
-Dikelola oleh @Insaynn 🇲🇨
+Dikelola oleh @candrakurniawannn 🇲🇨
 ┈──────────────────────┈
 Tekan tombol yang tersedia dibawah
 ini, untuk melihat command yang ada!
@@ -57,7 +57,7 @@ Klik tombol dibawah ini jika anda ingin berdonasi.
 tombol = [
     [
         InlineKeyboardButton(
-            text="💵 Donasi 💵", url="t.me/Insaynn"),
+            text="💵 Donasi 💵", url="t.me/candrakurniawannn"),
     ],
 ]
 
