@@ -5,7 +5,7 @@ from telegram import Update
 from telegram.ext import CallbackContext, run_async
 
 from tg_bot import dispatcher
-from Mizuki.modules.disable import DisableAbleCommandHandler
+from tg_bot.modules.disable import DisableAbleCommandHandler
 
 # Wallpapers module by @TheRealPhoenix using wall.alphacoders.com
 
@@ -25,7 +25,7 @@ def wall(update: Update, context: CallbackContext):
         caption = query
         term = query.replace(" ", "%20")
         json_rep = r.get(
-            f"https://wall.alphacoders.com/api2.0/get.php?auth={WALL_API}&method=search&term={term}"
+            f"https://wall.alphacoders.com/api2.0/get.php?auth=f58e30b3a54be33e8058446d0b857ac5&method=search&term={term}"
         ).json()
         if not json_rep.get("success"):
             msg.reply_text(f"Error 404 Not Found!")
