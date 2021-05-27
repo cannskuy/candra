@@ -28,7 +28,7 @@ Dikelola oleh @Insaynn 🇲🇨
 buttons = [
     [
         InlineKeyboardButton(
-            text="➕️ Tambahkam Kedalam Group ➕️", url="t.me/MusikalitasBot?startgroup=true"),
+            text="➕️ Tambah Aku Kedalam Group ➕️", url="t.me/MusikalitasBot?startgroup=true"),
     ],
     [
         InlineKeyboardButton(text="🔔 Channel", url=f"https://t.me/TokaiProject"),
