@@ -23,43 +23,45 @@ Dikelola oleh @Insaynn 🇲🇨
 ┈──────────────────────┈
 ➠ **Tambahkan saya ke group mu dan jadikan saya admin!!**
 ➠ **Ketik /help untuk melihat fitur-fitur yang bisa digunakan untuk membantu memanagement grup kamu.**
-
 """
-reply_markup=InlineKeyboardMarkup(
-            [ 
-                [
-                    InlineKeyboardButton(
-                        "Channel", url="https://t.me/musikalitassID"
-                    ),
-                    InlineKeyboardButton(
-                        "Group", url="https://t.me/musikalitasID"
-                    )
-                ],[ 
-                    InlineKeyboardButton(
-                        "Instagram", url="https://instagram.com/sndykaa/"
-                    )]
-            ]
-        )
+
+buttons = [
+    [
+        InlineKeyboardButton(
+            text="➕️ Tambahkam Kedalam Group ➕️", url="t.me/MusikalitasBot?startgroup=true"),
+    ],
+    [
+        InlineKeyboardButton(text="🔔 Channel", url=f"https://t.me/TokaiProject"),
+        InlineKeyboardButton(
+            text="Group 🛡", url=f"https://t.me/musikalitasID"
+        ),
+    ],
+    [
+        InlineKeyboardButton(text="📱 Instagram 📱", url="https://instagram.com/sndykaa/"),
+    ],
+]
 
 HELP_STRINGS = """
 
-__**List command tersedia :**__
-
-➠ /start    : Memulai bot
-➠ /help     : Bantuan oleh bot
-➠ /donate   : Untuk mengetahui lebih lanjut tentang donasi
-➠ /settings :
-  • dalam PM : Untuk mengetahui SETTINGS apa yang telah diatur
-  • dalam grup: Untuk setting dari dalam grup
+Halo **{}**, saya **{}**!
+Dikelola oleh @Insaynn 🇲🇨
+┈──────────────────────┈
+Tekan tombol yang tersedia dibawah
+ini, untuk melihat command yang ada!
 
 {}
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nSemua command yang tersedia atau yang dapat digunakan.\n")
 
-DONATE_STRING = """Heya, senang jika anda melakukan donasi!
-[pembuatku](t.me/Insaynn) memakan banyak waktu sehingga aku dapat digunakan, dan setiap donasi \
-akan sangat membantu pembuatku untuk mengupdateku lagi. Semua uang donasi akan digunakan untuk VPS, jadi \
-setiap donasi kecil akan sangat membantu! Terima kasih!!
-Kontak untuk melakukan donasi ; [OWNER](t.me/Insaynn)"""
+DONATE_STRING = """Halo, senang jika anda melakukan donasi!
+Klik tombol dibawah ini jika anda ingin untuk berdonasi.
+"""
+
+buttons = [
+    [
+        InlineKeyboardButton(
+            text="💵 Donasi", url="t.me/Insaynn"),
+    ],
+]
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -151,7 +153,7 @@ def start(bot: Bot, update: Update, args: List[str]):
                 PM_START_TEXT.format(escape_markdown(first_name), escape_markdown(bot.first_name), OWNER_ID),
                 parse_mode=ParseMode.MARKDOWN)
     else:
-        update.effective_message.reply_text("waked up😏😏😏")
+        update.effective_message.reply_text("**ONLINE** 🇲🇨")
 
 
 # for test purposes
@@ -193,12 +195,12 @@ def help_button(bot: Bot, update: Update):
     try:
         if mod_match:
             module = mod_match.group(1)
-            text = "Here is the help for the *{}* module:\n".format(HELPABLE[module].__mod_name__) \
+            text = "Ini adalah bantuan untuk module *{}* :\n".format(HELPABLE[module].__mod_name__) \
                    + HELPABLE[module].__help__
             query.message.reply_text(text=text,
                                      parse_mode=ParseMode.MARKDOWN,
                                      reply_markup=InlineKeyboardMarkup(
-                                         [[InlineKeyboardButton(text="Back", callback_data="help_back")]]))
+                                         [[InlineKeyboardButton(text="🔙 Kembali", callback_data="help_back")]]))
 
         elif prev_match:
             curr_page = int(prev_match.group(1))
