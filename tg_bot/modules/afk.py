@@ -58,7 +58,7 @@ def no_longer_afk(update: Update, context: CallbackContext):
         try:
             options = [
                 "{} telah kembali!",
-                "{} sudah kembali online!",
+                "{} alias si sok sibuk udah balik nih guys!",
                 "{} online lagi, pasti habis diputusin pacarnya!",
                 "{} telah bangun dari mati suri-nya!",
                 "Heh {}, ngapain balik kesini?!",
