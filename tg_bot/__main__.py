@@ -23,6 +23,8 @@ Dikelola oleh @Insaynn 🇲🇨
 ┈──────────────────────┈
 ➠ **Tambahkan saya ke group mu dan jadikan saya admin!!**
 ➠ **Ketik /help untuk melihat fitur-fitur yang bisa digunakan untuk membantu memanagement grup kamu.**
+
+"""
 reply_markup=InlineKeyboardMarkup(
             [ 
                 [
@@ -38,7 +40,6 @@ reply_markup=InlineKeyboardMarkup(
                     )]
             ]
         )
-"""
 
 HELP_STRINGS = """
 
