@@ -42,13 +42,12 @@ buttons = [
 ]
 
 HELP_STRINGS = """
-Halo **{}**, saya **{}**!
+Selamat datang di help menu dari {}!
 Dikelola oleh @Insaynn 🇲🇨
 ┈──────────────────────┈
 Tekan tombol yang tersedia dibawah
 ini, untuk melihat command yang ada!
 
-{}
 """.format(dispatcher.bot.first_name, "" if not ALLOW_EXCL else "\nSemua command yang tersedia atau yang dapat digunakan.\n")
 
 DONATE_STRING = """Halo, senang jika anda melakukan donasi!
