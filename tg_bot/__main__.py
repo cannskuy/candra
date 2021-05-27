@@ -383,9 +383,9 @@ def donate(bot: Bot, update: Update):
 
     else:
         try:
-            bot.send_message(user.id, DONATE_STRING, parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
+            bot.send_message(user.id, DONATE_STRING,reply_markup=InlineKeyboardMarkup(tombol), parse_mode=ParseMode.MARKDOWN, disable_web_page_preview=True)
 
-            update.effective_message.reply_text("Aku mengirimi anda pesan untuk melakukan donasi kepada creatorku!")
+            update.effective_message.reply_text("Aku mengirimimu pesan untuk melakukan donasi kepada creatorku!")
         except Unauthorized:
             update.effective_message.reply_text("Contact aku di PM terlebih dahulu untuk mengetahui info lengkap donasi.")
 
