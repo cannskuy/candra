@@ -109,8 +109,8 @@ def demote(bot: Bot, update: Update, args: List[str]) -> str:
                                           mention_html(user_member.user.id, user_member.user.first_name))
 
     except BadRequest:
-        message.reply_text("Could not demote. I might not be admin, or the admin status was appointed by another "
-                           "user, so I can't act upon them!")
+        message.reply_text("Tidak dapat mendemote. Mungkin aku bukan admin, atau permissions yang kupunya tidak lengkap"
+                           ", beri aku permissions!")
         return ""
 
 
@@ -182,9 +182,9 @@ def invite(bot: Bot, update: Update):
             invitelink = bot.exportChatInviteLink(chat.id)
             update.effective_message.reply_text(invitelink)
         else:
-            update.effective_message.reply_text("I don't have access to the invite link, try changing my permissions!")
+            update.effective_message.reply_text("Aku tidak memiliki akses ke invite link, coba ganti permissionsku!")
     else:
-        update.effective_message.reply_text("I can only give you invite links for supergroups and channels, sorry!")
+        update.effective_message.reply_text("Aku hanya bisa memberi invite link dari supergrup atau channel, maaf!")
 
 
 @run_async
@@ -198,8 +198,8 @@ def adminlist(bot: Bot, update: Update):
         if user.username:
             name = "[{}](tg://user?id={})".format(user.first_name + (user.last_name or ""), user.id)
         if status == "creator":
-            text += "\n 🔱 Creator:"
-            text += "\n` • `{} \n\n 🔰 Admin:".format(name)
+            text += "\n 👑 **Creator:**"
+            text += "\n` • `{} \n\n 🛡 **Admin:**".format(name)
     for admin in administrators:
         user = admin.user
         status = admin.status
@@ -220,11 +220,11 @@ __help__ = """
  - /adminlist: list of admins in the chat
 
 *Admin only:*
- - /pin: silently pins the message replied to - add 'loud' or 'notify' to give notifs to users.
- - /unpin: unpins the currently pinned message
- - /invitelink: gets invitelink
- - /promote: promotes the user replied to
- - /demote: demotes the user replied to
+ - /pin: pinned pesan secara silent - tambahkan 'loud' atau 'notify' untuk mengaktifkan notifikasi.
+ - /unpin: unpinned pesan
+ - /invitelink: mendapatkan invitelink
+ - /promote: promoting user dari reply pesan
+ - /demote: demoting user dari reply pesan
 """
 
 __mod_name__ = "Admin"
