@@ -27,7 +27,7 @@ def afk(bot: Bot, update: Update):
 
     sql.set_afk(update.effective_user.id, reason)
     fname = update.effective_user.first_name
-    update.effective_message.reply_text("{} telah pergi, cepat kembali ya!".format(fname))
+    update.effective_message.reply_text("{} pergi mulu, so sibuk bat ".format(fname))
 
     
 @run_async
@@ -46,13 +46,15 @@ def no_longer_afk(bot: Bot, update: Update):
         firstname = update.effective_user.first_name
         try:        
             options = [
-                "{} telah kembali!",
+                "{} siapa suruh balik lagi ? ",
                 "{} alias si sok sibuk udah balik nih guys!",
                 "{} online lagi, pasti habis diputusin pacarnya!",
                 "{} telah bangun dari mati suri-nya!",
                 "Heh {}, ngapain balik kesini?!",
                 "{} akhirnya kembali, aku rindu kamu!",
-                "Selamat datang! {}",
+                "{} gila ya ?",
+                "{} kenapa kamu menyebalkan ?",
+                " Bolak balik mulu huh {}",
                 "Dimanakah {}?\nDia disini!",
      
             ]
