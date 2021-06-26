@@ -29,7 +29,7 @@ def afk(bot: Bot, update: Update):
 
     sql.set_afk(update.effective_user.id, reason)
     fname = update.effective_user.first_name
-    update.effective_message.reply_text("{} pergi mulu, so sibuk bat ".format(fname)
+    afksend = update.effective_message.reply_text("{} pergi mulu, so sibuk bat ".format(fname)
          )
     sleep(10)
     try:
@@ -72,7 +72,7 @@ def no_longer_afk(bot: Bot, update: Update):
      
             ]
             chosen_option = random.choice(options)
-            update.effective_message.reply_text(chosen_option.format(firstname)
+            unafk = update.effective_message.reply_text(chosen_option.format(firstname)
             )
             sleep(10)
             unafk.delete()
@@ -143,7 +143,7 @@ def check_afk(bot, update, user_id, fst_name, userc_id):
             if int(userc_id) == int(user_id):
                 return
             res = "{} sedang offline!\nAlasan: {}".format(fst_name, user.reason)
-            update.effective_message.reply_text(
+            replafk = update.effective_message.reply_text(
                 res, parse_mode="html"
               )
         sleep(10)
