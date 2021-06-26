@@ -145,7 +145,7 @@ def check_afk(bot, update, user_id, fst_name, userc_id):
             res = "{} sedang offline!\nAlasan: {}".format(fst_name, user.reason)
             update.effective_message.reply_text(res)
               
-           )
+        )
         sleep(10)
         try:
             replafk.delete()
