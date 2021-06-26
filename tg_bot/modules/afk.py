@@ -1,5 +1,6 @@
 import random
 from typing import Optional
+from time import sleep
 
 from telegram import Message, Update, Bot, User
 from telegram import MessageEntity, ParseMode
@@ -10,6 +11,7 @@ from tg_bot import dispatcher
 from tg_bot.modules.disable import DisableAbleCommandHandler, DisableAbleRegexHandler
 from tg_bot.modules.sql import afk_sql as sql
 from tg_bot.modules.users import get_user_id
+
 
 
 AFK_GROUP = 7
@@ -28,8 +30,14 @@ def afk(bot: Bot, update: Update):
     sql.set_afk(update.effective_user.id, reason)
     fname = update.effective_user.first_name
     update.effective_message.reply_text("{} pergi mulu, so sibuk bat ".format(fname))
+     sleep(10)
+    try:
+        afksend.delete()
+    except BadRequest:
+        return
+     
 
-    
+   
 @run_async
 def no_longer_afk(bot: Bot, update: Update):
     user = update.effective_user  # type: Optional[User]
@@ -49,17 +57,23 @@ def no_longer_afk(bot: Bot, update: Update):
                 "{} siapa suruh balik lagi ? ",
                 "{} alias si sok sibuk udah balik nih guys!",
                 "{} online lagi, pasti habis diputusin pacarnya!",
-                "{} telah bangun dari mati suri-nya!",
+                "{} mending mati nanggung off doang",
                 "Heh {}, ngapain balik kesini?!",
-                "{} akhirnya kembali, aku rindu kamu!",
+                "{} percuma balik lagi ga ada yang nyari loe",
                 "{} gila ya ?",
                 "{} kenapa kamu menyebalkan ?",
+                "{} ga ada yang peduli lu off",
+                "{} seleb halu telah kembali",
+                " liat, {} si caper balik lagi",
+                "lah {} kok balik lagi? gajadi mati?",
                 " Bolak balik mulu huh {}",
                 "Dimanakah {}?\nDia disini!",
      
             ]
             chosen_option = random.choice(options)
             update.effective_message.reply_text(chosen_option.format(firstname))
+            sleep(10)
+            unafk.delete()
         except:
             return
 
@@ -128,6 +142,18 @@ def check_afk(bot, update, user_id, fst_name, userc_id):
                 return
             res = "{} sedang offline!\nAlasan: {}".format(fst_name, user.reason)
             update.effective_message.reply_text(res)
+              
+           )
+        sleep(10)
+        try:
+            replafk.delete()
+        except BadRequest:
+            return
+
+
+def __gdpr__(user_id):
+    afk_db.rm_afk(user_id)
+
 
 
 __help__ = """
