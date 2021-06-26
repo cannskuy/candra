@@ -143,14 +143,16 @@ def check_afk(bot, update, user_id, fst_name, userc_id):
             if int(userc_id) == int(user_id):
                 return
             res = "{} sedang offline!\nAlasan: {}".format(fst_name, user.reason)
-            update.effective_message.reply_text(res)
-              
-        )
+            update.effective_message.reply_text(
+                res, parse_mode="html"
+              )
         sleep(10)
         try:
             replafk.delete()
         except BadRequest:
             return
+              
+      
 
 
 def __gdpr__(user_id):
