@@ -31,7 +31,7 @@ def afk(bot: Bot, update: Update):
     fname = update.effective_user.first_name
     update.effective_message.reply_text("{} pergi mulu, so sibuk bat ".format(fname)
          )
-     sleep(10)
+    sleep(10)
     try:
         afksend.delete()
     except BadRequest:
